@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core palette - true black for OLED */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary - teal from ring colors */
+    --primary: 176 85% 19%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - soft dark */
+    --secondary: 0 0% 6%;
+    --secondary-foreground: 0 0% 90%;
+
+    /* Muted tones */
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 65%;
+
+    /* Accent - blue from ring colors */
+    --accent: 205 75% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 12%;
+    --input: 0 0% 8%;
+    --ring: 176 85% 19%;
+
+    --radius: 1rem;
+
+    /* Custom design tokens - enhanced glass effect for dark theme */
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.08;
+    --glass-shadow: 0 0% 0% / 0.3;
+    
+    /* Circular gradient - true black for OLED */
+    --gradient-center: 0 0% 0%;
+    --gradient-edge: 0 0% 0%;
+    
+    /* Text colors for dark theme - orange headings, white paragraphs */
+    --text-hero: 27 90% 58%;
+    --text-hero-dark: 27 85% 50%;
+    --text-subtle: 0 0% 100%;
+    
+    /* Typography */
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Shadows for dark theme */
+    --shadow-soft: 0 8px 32px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 4px 24px hsl(0 0% 0% / 0.3);
+    --shadow-float: 0 20px 60px hsl(0 0% 0% / 0.5);
+
+    /* Sidebar defaults */
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 0% 95%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 40%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 176 85% 22%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 5%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 6%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 205 75% 32%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 10%;
+    --input: 0 0% 6%;
+    --ring: 176 85% 22%;
+
+    --glass-bg: 0 0% 100% / 0.03;
+    --glass-border: 0 0% 100% / 0.05;
+    
+    --gradient-center: 0 0% 0%;
+    --gradient-edge: 0 0% 0%;
+    
+    --text-hero: 176 85% 50%;
+    --text-subtle: 0 0% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  /* Glassmorphism */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  /* Circular gradient background */
+  .gradient-radial {
+    background: radial-gradient(
+      ellipse at center,
+      hsl(var(--gradient-center)) 0%,
+      hsl(var(--gradient-edge)) 70%,
+      hsl(var(--gradient-edge)) 100%
+    );
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay {
+    position: relative;
+  }
+
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+}
+
+@layer utilities {
+  /* Orange glass gradient text for headings */
+  .text-hero-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(27 90% 58%) 0%,
+      hsl(35 95% 55%) 50%,
+      hsl(27 85% 50%) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Alternative gradient with all ring colors */
+  .text-ring-gradient {
+    background: linear-gradient(
+      90deg,
+      #07565B 0%,
+      #16638F 33%,
+      #F38933 66%,
+      #979797 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
