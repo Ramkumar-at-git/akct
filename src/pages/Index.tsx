@@ -5,7 +5,7 @@ import BottomNav from "@/components/BottomNav";
 import Scene3D from "@/components/Scene3D";
 import HomeSection from "@/components/sections/HomeSection";
 import AboutSection from "@/components/sections/AboutSection";
-import ServicesSection from "@/components/sections/ServicesSection";
+import WorkflowSection from "@/components/sections/WorkflowSection";
 import BlogsSection from "@/components/sections/BlogsSection";
 import ContactSection from "@/components/sections/ContactSection";
 
@@ -33,7 +33,7 @@ const Index = () => {
         <div className="relative z-10">
           <HomeSection />
           <AboutSection />
-          <ServicesSection />
+          <WorkflowSection />
           <BlogsSection />
           <ContactSection />
         </div>

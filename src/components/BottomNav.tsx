@@ -47,22 +47,22 @@ const BottomNav = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed bottom-4 sm:bottom-8 left-0 right-0 z-50 flex justify-center px-4"
+      className="fixed bottom-4 sm:bottom-8 left-0 right-0 z-50 flex justify-center px-2 sm:px-4"
     >
       <motion.div 
-        className="bg-white/15 backdrop-blur-xl rounded-pill px-2 xs:px-3 sm:px-6 py-1.5 xs:py-2 sm:py-3 shadow-glass border border-white/30"
+        className="bg-white/15 backdrop-blur-xl rounded-pill px-2 xs:px-3 sm:px-6 py-2.5 xs:py-3 sm:py-3 shadow-glass border border-white/30 w-[calc(100%-1rem)] sm:w-auto max-w-lg sm:max-w-none mx-auto"
         layout
         layoutId="bottomNav"
       >
-        <ul className="flex items-center justify-center gap-0">
+        <ul className="flex items-center justify-between sm:justify-center gap-0">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.replace("#", "");
             
             return (
-              <li key={item.label}>
+              <li key={item.label} className="flex-1 sm:flex-none">
                 <button
                   onClick={() => scrollToSection(item.href)}
-                  className={`relative px-1.5 xs:px-2 sm:px-5 py-1 xs:py-1.5 sm:py-2.5 font-body text-[10px] xs:text-xs sm:text-sm font-medium transition-all duration-300 rounded-pill block whitespace-nowrap ${
+                  className={`relative w-full px-1.5 xs:px-2 sm:px-5 py-2 xs:py-2.5 sm:py-2.5 font-body text-[11px] xs:text-sm sm:text-sm font-medium transition-all duration-300 rounded-pill block whitespace-nowrap text-center ${
                     isActive ? "text-white" : "text-white/60 hover:text-white"
                   }`}
                 >

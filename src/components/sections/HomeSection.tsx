@@ -1,14 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const HomeSection = () => {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToServices = () => {
-    document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -31,27 +27,21 @@ const HomeSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
-          className="font-body text-xs xs:text-sm sm:text-lg md:text-xl text-white max-w-2xl mx-auto mb-5 xs:mb-6 sm:mb-10 leading-relaxed px-2"
+          className="font-body text-xs xs:text-sm sm:text-lg md:text-xl text-white max-w-3xl mx-auto mb-5 xs:mb-6 sm:mb-10 leading-relaxed px-2"
         >
-          Transforming brands through strategic digital growth, innovative branding, 
-          and high-performance marketing that delivers measurable results.
+          AKCT Digital Marketing helps businesses build authority and generate quality enquiries through intent-driven social media strategies. Our approach is rooted in discovery, customer search behavior, and strategic content planning — not trends or guesswork.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
+          className="flex justify-center items-center"
         >
           <Button onClick={scrollToContact} variant="hero" size="hero" className="text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
-            Get Started
+            Book Discovery Call
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
-          </Button>
-          
-          <Button onClick={scrollToServices} variant="heroOutline" size="hero" className="text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
-            <Play className="w-3 h-3 sm:w-4 sm:h-4 mr-1 fill-current" />
-            View Our Work
           </Button>
         </motion.div>
 

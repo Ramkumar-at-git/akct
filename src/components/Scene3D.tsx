@@ -165,8 +165,37 @@ const SceneContent = () => {
   return <SceneController scrollData={scrollData} />;
 };
 
+// Responsive camera position hook
+const useResponsiveCamera = () => {
+  const [cameraZ, setCameraZ] = useState(8);
+
+  useEffect(() => {
+    const updateCamera = () => {
+      const width = window.innerWidth;
+      if (width < 480) {
+        setCameraZ(12); // Mobile - further back
+      } else if (width < 768) {
+        setCameraZ(10); // Tablet
+      } else if (width < 1024) {
+        setCameraZ(9); // Small desktop
+      } else if (width >= 1920) {
+        setCameraZ(7); // Large screens - closer
+      } else {
+        setCameraZ(8); // Default
+      }
+    };
+
+    updateCamera();
+    window.addEventListener('resize', updateCamera);
+    return () => window.removeEventListener('resize', updateCamera);
+  }, []);
+
+  return cameraZ;
+};
+
 const Scene3D = () => {
   const [webglSupported, setWebglSupported] = useState(true);
+  const cameraZ = useResponsiveCamera();
 
   useEffect(() => {
     try {
@@ -188,7 +217,7 @@ const Scene3D = () => {
     <div className="fixed inset-0 z-0 pointer-events-none">
       <div className="absolute inset-0 opacity-90">
         <Canvas
-          camera={{ position: [0, 0, 8], fov: 45 }}
+          camera={{ position: [0, 0, cameraZ], fov: 45 }}
           dpr={[1, 1.5]}
           gl={{ 
             antialias: true, 

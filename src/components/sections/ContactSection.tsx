@@ -11,17 +11,20 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@akctdigital.com",
+    value: "contact.akct@gmail.com",
+    href: "mailto:contact.akct@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
+    value: "70109 18591",
+    href: "tel:+917010918591",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Porur - Kattupakkam",
+    href: "https://maps.app.goo.gl/xQQecpkV1KcAo81U6",
   },
 ];
 
@@ -181,21 +184,36 @@ const ContactSection = () => {
               </h3>
               <div className="space-y-3 sm:space-y-4 md:space-y-6 mb-6 sm:mb-8 md:mb-12">
                 {contactInfo.map((info) => (
-                  <div key={info.label} className="flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-xl border border-white/20">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <a
+                    key={info.label}
+                    href={info.href}
+                    target={info.label === "Location" ? "_blank" : undefined}
+                    rel={info.label === "Location" ? "noopener noreferrer" : undefined}
+                    className="flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 hover:border-primary/30 transition-all duration-300 group"
+                  >
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                       <info.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary" />
                     </div>
                     <div>
                       <p className="font-body text-[10px] sm:text-xs md:text-sm text-white/60">{info.label}</p>
                       <p className="font-body text-xs sm:text-sm md:text-base text-foreground font-medium">{info.value}</p>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
 
-              {/* Map placeholder */}
-              <div className="rounded-lg sm:rounded-xl md:rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 h-24 sm:h-32 md:h-40 lg:h-48 flex items-center justify-center">
-                <p className="text-white/60 font-body text-xs sm:text-sm">Map coming soon</p>
+              {/* Map */}
+              <div className="rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border border-white/20">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.139063896046!2d80.15234231482243!3d13.034619090818693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5261b0e4e4e6e9%3A0x1f0f0c6c9f5a4a2c!2sPorur%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
+                  width="100%"
+                  height="200"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                />
               </div>
             </motion.div>
           </div>
