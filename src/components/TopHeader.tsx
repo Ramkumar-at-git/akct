@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import logo from "@/assests/logo.png";
 
 const TopHeader = () => {
   const scrollToContact = () => {
@@ -20,13 +19,10 @@ const TopHeader = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2">
-
-            <img
-                src={logo}
-                alt="AKCT Logo"
-                className="w-15 h-12 sm:w-18 sm:h-15 object-contain"
-                />
-
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center">
+            <span className="font-heading text-primary-foreground font-bold text-sm sm:text-base">A</span>
+          </div>
+          <span className="font-heading font-bold text-foreground text-sm sm:text-base hidden sm:block">AKCT</span>
         </a>
 
         {/* Contact Button */}

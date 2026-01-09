@@ -29,7 +29,9 @@ const HomeSection = () => {
           transition={{ duration: 0.7, delay: 0.7 }}
           className="font-body text-xs xs:text-sm sm:text-lg md:text-xl text-white max-w-3xl mx-auto mb-5 xs:mb-6 sm:mb-10 leading-relaxed px-2"
         >
-          AKCT Digital Marketing helps businesses build authority and generate quality enquiries through intent-driven social media strategies. Our approach is rooted in discovery, customer search behavior, and strategic content planning — not trends or guesswork.
+          AKCT Digital Marketing helps businesses get noticed, trusted, and contacted through meaningful social media content.
+          <br /><br />
+          We work with only one brand per category and focus on telling their story clearly, honestly, and consistently — so the right customers feel confident reaching out.
         </motion.p>
 
         {/* CTA Button */}

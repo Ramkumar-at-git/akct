@@ -5,23 +5,23 @@ import SectionBlurOverlay from "@/components/SectionBlurOverlay";
 const values = [
   {
     icon: Search,
-    title: "Discovery-Led",
-    description: "We begin with deep understanding of your business, market, and customer questions."
+    title: "We work with focus",
+    description: "Only one brand per category. No competition. Full commitment."
   },
   {
     icon: MessageSquare,
-    title: "Intent-Driven Content",
-    description: "Content built on search intent and decision intent, not random trends."
+    title: "We tell real stories",
+    description: "Your process, experience, and values — not random trends."
   },
   {
     icon: TrendingUp,
-    title: "Measurable Growth",
-    description: "Long-term visibility and consistent inbound conversations, not vanity metrics."
+    title: "We think like customers",
+    description: "Content is created based on what people want to know before they decide."
   },
   {
     icon: Shield,
-    title: "Trust Building",
-    description: "Positioning business owners as industry experts with clarity and credibility."
+    title: "We aim for conversations",
+    description: "Not just likes or views, but real enquiries and trust."
   }
 ];
 
@@ -48,7 +48,7 @@ const AboutSection = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="font-body text-xs sm:text-base md:text-lg lg:text-xl text-white max-w-3xl mx-auto px-2 leading-relaxed"
             >
-              AKCT Digital Marketing is a strategy-led digital marketing firm that helps businesses generate trust, authority, and enquiries through intent-driven content.
+              AKCT Digital Marketing is built for businesses that want clarity, not confusion.
             </motion.p>
           </div>
 
@@ -61,13 +61,10 @@ const AboutSection = () => {
             className="bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/10 mb-8 sm:mb-12 md:mb-16"
           >
             <p className="font-body text-xs sm:text-sm md:text-base text-white/90 leading-relaxed mb-4">
-              We don't believe in random posting, viral chasing, or vanity metrics. Every piece of content we create is built on a clear understanding of how your customers think, search, and decide before they choose a brand.
-            </p>
-            <p className="font-body text-xs sm:text-sm md:text-base text-white/90 leading-relaxed mb-4">
-              Our process begins with <span className="text-primary font-semibold">Discovery</span> — understanding your business, your market, and the real questions your customers ask. From there, we design content strategies rooted in Search Intent and Decision Intent, ensuring your social media presence doesn't just look professional, but actually works as a lead-generation and trust-building system.
+              We don't post content just to stay active. We first understand your business, your customers, and the questions people ask before choosing you. Then we create content that answers those questions and builds trust over time.
             </p>
             <p className="font-body text-xs sm:text-sm md:text-base text-white/90 leading-relaxed">
-              At AKCT, we position business owners as industry experts, helping them communicate clarity, confidence, and credibility through platforms like Instagram, Facebook, and YouTube.
+              To give our best, we work in a <span className="text-primary font-semibold">category-exclusive model</span> — partnering with only one brand per industry.
             </p>
           </motion.div>
 
@@ -113,7 +110,7 @@ const AboutSection = () => {
                 Our Mission
               </h3>
               <p className="font-body text-xs sm:text-sm md:text-base text-white/90 leading-relaxed">
-                To help businesses generate trust, authority, and consistent enquiries by creating intent-driven digital content that answers real customer questions and supports long-term growth. We move brands away from random posting and vanity metrics, building strategic social media systems rooted in discovery, search intent, and measurable outcomes.
+                To help businesses grow by creating clear, honest social media content that builds trust and brings the right customers closer to them.
               </p>
             </motion.div>
 
@@ -129,7 +126,7 @@ const AboutSection = () => {
                 Our Vision
               </h3>
               <p className="font-body text-xs sm:text-sm md:text-base text-white/90 leading-relaxed">
-                To become a trusted digital growth partner that transforms business owners into industry experts by helping them communicate clarity, confidence, and credibility through digital platforms. We envision a future where businesses don't depend on trends or virality, but grow sustainably through strong positioning and strategic content execution.
+                To build brands that people recognise, trust, and choose — by focusing on meaningful stories instead of noise and shortcuts.
               </p>
             </motion.div>
           </div>
@@ -143,7 +140,7 @@ const AboutSection = () => {
             className="text-center mt-8 sm:mt-12 md:mt-16"
           >
             <p className="font-heading text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold text-hero-gradient">
-              AKCT Digital Marketing — turning businesses into trusted brands, not just visible ones.
+              AKCT Digital Marketing — One brand. One category. Full focus.
             </p>
           </motion.div>
         </div>
