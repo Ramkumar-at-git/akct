@@ -47,10 +47,10 @@ const BottomNav = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed bottom-4 sm:bottom-8 left-0 right-0 z-50 flex justify-center px-2 sm:px-4"
+      className="fixed bottom-4 lg:bottom-auto lg:top-4 left-0 right-0 z-50 flex justify-center px-2 sm:px-4"
     >
       <motion.div 
-        className="bg-white/15 backdrop-blur-xl rounded-pill px-2 xs:px-3 sm:px-6 py-2.5 xs:py-3 sm:py-3 shadow-glass border border-white/30 w-[calc(100%-1rem)] sm:w-auto max-w-lg sm:max-w-none mx-auto"
+        className="bg-white/15 backdrop-blur-xl rounded-pill px-2 xs:px-3 sm:px-6 py-2.5 xs:py-3 sm:py-3 shadow-glass border border-white/30 w-[calc(100%-1rem)] sm:w-auto max-w-lg sm:max-w-none"
         layout
         layoutId="bottomNav"
       >

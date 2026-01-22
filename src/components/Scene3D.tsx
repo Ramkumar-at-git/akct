@@ -124,7 +124,7 @@ const ParticleConstellation = ({ scrollVelocity, scrollDirection }: { scrollVelo
           size={0.05}
           color="#ffffff"
           transparent
-          opacity={1}
+          opacity={0.7}
           sizeAttenuation
         />
       </points>
@@ -142,7 +142,7 @@ const ParticleConstellation = ({ scrollVelocity, scrollDirection }: { scrollVelo
         <lineBasicMaterial
           color="#ffffff"
           transparent
-          opacity={0.25}
+          opacity={0.18}
           linewidth={1}
         />
       </lineSegments>

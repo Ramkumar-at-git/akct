@@ -14,7 +14,7 @@ const TopHeader = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4"
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4 lg:hidden"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
