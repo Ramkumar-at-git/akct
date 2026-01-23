@@ -112,7 +112,7 @@ const WorkflowSection = () => {
                         <div className={`relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
                           <step.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                           <div className="absolute -top-1 -right-1 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-background border-2 border-primary flex items-center justify-center">
-                            <span className="font-heading text-[10px] sm:text-xs font-bold text-white">{step.step}</span>
+                            <span className="font-heading text-[10px] sm:text-xs font-bold text-primary">{step.step}</span>
                           </div>
                         </div>
                       </div>

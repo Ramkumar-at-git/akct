@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const navItems = [
@@ -11,6 +11,29 @@ const navItems = [
 
 const BottomNav = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [isVisible, setIsVisible] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const { scrollY } = useScroll();
+
+  // Check if desktop
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
+
+  // Scroll direction detection - only affects desktop nav
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 100) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +44,6 @@ const BottomNav = () => {
         const element = document.getElementById(sections[i]);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Check if the section's top is above the middle of the viewport
           if (rect.top <= viewportMiddle) {
             setActiveSection(sections[i]);
             break;
@@ -42,11 +64,20 @@ const BottomNav = () => {
     }
   };
 
+  // Desktop: hide on scroll down, Mobile/Tablet: always visible
+  const shouldShow = isDesktop ? isVisible : true;
+  const animateY = isDesktop 
+    ? (isVisible ? 0 : -100) 
+    : 0;
+
   return (
     <motion.nav
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: isDesktop ? -20 : 20 }}
+      animate={{ 
+        opacity: shouldShow ? 1 : 0, 
+        y: animateY 
+      }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       className="fixed bottom-4 lg:bottom-auto lg:top-4 left-0 right-0 z-50 flex justify-center px-2 sm:px-4"
     >
       <motion.div 

@@ -1,7 +1,20 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const TopHeader = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 100) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  });
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -12,9 +25,12 @@ const TopHeader = () => {
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4 lg:hidden"
+      animate={{ 
+        opacity: isVisible ? 1 : 0, 
+        y: isVisible ? 0 : -100 
+      }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
